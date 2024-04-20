@@ -1,0 +1,11 @@
+
+@using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @class = "logout-form" }))
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Logout</button>
+}
+.logout-form {
+    display: none;
+}
+
+

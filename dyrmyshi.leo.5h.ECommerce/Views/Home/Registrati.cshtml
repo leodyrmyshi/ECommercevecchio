@@ -1,0 +1,28 @@
+﻿@model dyrmyshi.leo._5h.ECommerce.Models.Utente;
+@{
+    ViewData["Title"] = "Registrati";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Registrati</h1>
+    <p>>Inserisci i tuoi dati qui</a>.</p>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form asp-controller="Home" asp-action="Shop" method="post">
+        Username:
+        <input type="text" asp-for="Username" name="Username">
+        Password:
+        <input type="password" asp-for="Password" name="Password">
+        Email:
+        <input type="text" asp-for="Email" name="Email">
+        <input type="submit" name="Invio">
+        <input type="reset" name="Riavvia">
+    </form>
+}
+    @if (Utente.Identity.IsAuthenticated)
+    {
+    @Html.ActionLink("Logout", "Logout", "Home", null, new { @class = "btn btn-danger" })
+    }
+
+</div>
